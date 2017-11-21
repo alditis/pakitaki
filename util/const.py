@@ -1,0 +1,32 @@
+import datetime
+
+APP_NAME = 'PakiTaki'
+APP_UI = 'ui/pakitaki.ui'
+APP_SCHEMA = 'org.gnome.rhythmbox.plugins.pakitaki'
+APP_LOGO = 'pakitaki.png'
+
+TAG_ARTIST = 'Rhythmbox'
+TAG_YEAR = str(datetime.datetime.now().year)
+
+NUMBER_SONGS_MIN = 2
+DURATION_ACROSSFADE = 3
+
+BITRATE = '128k'
+NAME_RESULT = 'pakitaki_'
+SOURCE_ALL_SONGS = '<All songs>'
+
+FORMAT_OGG = 'ogg'
+FORMAT_MP3 = 'mp3'
+OUTPUT_FORMATS = [FORMAT_OGG, FORMAT_MP3]
+
+TASK_FRAGMENT = 1
+TASK_JOIN = 2
+TASK_DELETE = 3
+
+SLEEP_TASK_FRAGMENT = 0.1
+SLEEP_TASK_JOIN = 0.65
+SLEEP_TASK_DELETE = 0.1
+
+PERCENTAGE_TASK_FRAGMENT = 0.3
+PERCENTAGE_TASK_JOIN = 0.6
+PERCENTAGE_TASK_DELETE = 0.2

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema id="org.gnome.rhythmbox.plugins.pakitaki" path="/org/gnome/rhythmbox/plugins/pakitaki/">
+    <key name="number-songs" type="n">
+      <default>10</default>
+      <summary>Number songs</summary>
+      <description>Number songs to process</description>
+    </key>
+    <key name="start-min" type="n">
+      <default>10</default>
+      <summary>Start min</summary>
+      <description>Start min second</description>
+    </key>
+    <key name="start-max" type="n">
+      <default>80</default>
+      <summary>Start max</summary>
+      <description>Start max second</description>
+    </key>
+    <key name="duration-min" type="n">
+      <default>15</default>
+      <summary>Duration min</summary>
+      <description>Duration min second</description>
+    </key>
+    <key name="duration-max" type="n">
+      <default>30</default>
+      <summary>Duration max</summary>
+      <description>Duration max second</description>
+    </key>
+    <key name="output-folder" type="s">
+      <default>''</default>
+      <summary>Output folder</summary>
+      <description>Folder where will it saved the resulting song</description>
+    </key>
+    <key name="output-format" type="s">
+      <default>'ogg'</default>
+      <summary>Format</summary>
+      <description>Format of the resulted song</description>
+    </key>
+    <key name="report" type="s">
+      <default>''</default>
+      <summary>Report</summary>
+      <description>Report of the process</description>
+    </key>
+  </schema>
+</schemalist>

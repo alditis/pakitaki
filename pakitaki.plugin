@@ -1,0 +1,9 @@
+[Plugin]
+Loader=python3
+Module=pakitaki
+IAge=2
+Name=PakiTaki
+Description=Fragments songs random.
+Authors=alditis <alditis@gmail.com>
+Copyright=Copyright © 2017 alditis
+Website=https://github.com/alditis/pakitaki

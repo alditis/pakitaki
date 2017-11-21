@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <!-- interface-requires gtk+ 3.0 -->
+    <object class="GtkWindow" id="window">
+        <property name="can_focus">False</property>
+        <property name="title">PakiTaki</property>
+        <property name="window-position">center-always</property>
+        <property name="type-hint">dialog</property>
+        <child>
+            <object class="GtkGrid" id="grid">
+                <property name="visible">True</property>
+                <property name="row-spacing">10</property>
+                <property name="border-width">20</property>
+                <child>
+                    <object class="GtkFrame" id="frame1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="border-width">1</property>
+                        <property name="label"> Songs to fragment and join </property>
+                        <child>
+                            <object class="GtkHBox" id="hbox1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="border-width">10</property>
+                                <child>
+                                    <object class="GtkLabel" id="rb_pakitaki_source_songs_label">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="xpad">0</property>
+                                        <property name="xalign">0</property>
+                                        <property name="label" translatable="yes">Source:</property>
+                                        <property name="use_underline">True</property>
+                                    </object>
+                                    <packing>
+                                        <property name="position">0</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkComboBox" id="rb_pakitaki_source_songs">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="model">sources</property>
+                                        <signal name="changed" handler="rb_pakitaki_source_songs_changed" swapped="no"/>
+                                        <child>
+                                            <object class="GtkCellRendererText" id="renderer1"/>
+                                            <attributes>
+                                                <attribute name="text">0</attribute>
+                                            </attributes>
+                                        </child>
+                                    </object>
+                                    <packing>
+                                        <property name="position">1</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkLabel" id="rb_pakitaki_number_songs_label">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="xpad">0</property>
+                                        <property name="xalign">0</property>
+                                        <property name="label" translatable="yes">Number songs:</property>
+                                        <property name="use_underline">True</property>
+                                    </object>
+                                    <packing>
+                                        <property name="position">2</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkSpinButton" id="rb_pakitaki_number_songs">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="numeric">True</property>
+                                        <property name="adjustment">adjustment_number_songs</property>
+                                        <signal name="value-changed" handler="rb_pakitaki_number_songs_changed" swapped="no"/>
+                                    </object>
+                                    <packing>
+                                        <property name="position">3</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="left-attach">0</property>
+                        <property name="top-attach">0</property>
+                    </packing>
+                </child>
+
+                <child>
+                    <object class="GtkFrame" id="frame2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="border-width">1</property>
+                        <property name="label"> Duration of each fragment in seconds </property>
+                        <child>
+                            <object class="GtkHBox" id="hbox2">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="border-width">10</property>
+                                <child>
+                                    <object class="GtkLabel" id="rb_pakitaki_duration_min_label">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="xpad">0</property>
+                                        <property name="xalign">0</property>
+                                        <property name="label" translatable="yes">Min:</property>
+                                        <property name="use_underline">True</property>
+                                    </object>
+                                    <packing>
+                                        <property name="position">0</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkSpinButton" id="rb_pakitaki_duration_min">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="numeric">True</property>
+                                        <property name="adjustment">adjustment_duration_min</property>
+                                        <signal name="value-changed" handler="rb_pakitaki_duration_min_changed" swapped="no"/>
+                                    </object>
+                                    <packing>
+                                        <property name="position">1</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkLabel" id="rb_pakitaki_duration_max_label">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="xpad">0</property>
+                                        <property name="xalign">0</property>
+                                        <property name="label" translatable="yes">Max:</property>
+                                        <property name="use_underline">True</property>
+                                    </object>
+                                    <packing>
+                                        <property name="position">2</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkSpinButton" id="rb_pakitaki_duration_max">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="numeric">True</property>
+                                        <property name="adjustment">adjustment_duration_max</property>
+                                        <signal name="value-changed" handler="rb_pakitaki_duration_max_changed" swapped="no"/>
+                                    </object>
+                                    <packing>
+                                        <property name="position">3</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="left-attach">0</property>
+                        <property name="top-attach">1</property>
+                    </packing>
+                </child>
+
+                <child>
+                    <object class="GtkFrame" id="frame3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="border-width">1</property>
+                        <property name="label"> Start of each song in seconds </property>
+                        <child>
+                            <object class="GtkHBox" id="hbox3">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="border-width">10</property>
+                                <child>
+                                    <object class="GtkLabel" id="rb_pakitaki_start_min_label">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="xpad">0</property>
+                                        <property name="xalign">0</property>
+                                        <property name="label" translatable="yes">Min:</property>
+                                        <property name="use_underline">True</property>
+                                    </object>
+                                    <packing>
+                                        <property name="position">0</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkSpinButton" id="rb_pakitaki_start_min">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="numeric">True</property>
+                                        <property name="adjustment">adjustment_start_min</property>
+                                        <signal name="value-changed" handler="rb_pakitaki_start_min_changed" swapped="no"/>
+                                    </object>
+                                    <packing>
+                                        <property name="position">1</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkLabel" id="rb_pakitaki_start_max_label">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="xpad">0</property>
+                                        <property name="xalign">0</property>
+                                        <property name="label" translatable="yes">Max:</property>
+                                        <property name="use_underline">True</property>
+                                    </object>
+                                    <packing>
+                                        <property name="position">2</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkSpinButton" id="rb_pakitaki_start_max">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="numeric">True</property>
+                                        <property name="adjustment">adjustment_start_max</property>
+                                        <signal name="value-changed" handler="rb_pakitaki_start_max_changed" swapped="no"/>
+                                    </object>
+                                    <packing>
+                                        <property name="position">3</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="left-attach">0</property>
+                        <property name="top-attach">2</property>
+                    </packing>
+                </child>
+        
+                <child>
+                    <object class="GtkFrame" id="frame4">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="border-width">1</property>
+                        <property name="label"> Result </property>
+                        <child>
+                            <object class="GtkHBox" id="hbox4">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="border-width">10</property>
+                                <child>
+                                    <object class="GtkLabel" id="rb_pakitaki_output_folder_label">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="label" translatable="yes">Destination:</property>
+                                    </object>
+                                    <packing>
+                                        <property name="position">0</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkFileChooserButton" id="rb_pakitaki_output_folder">
+                                        <property name="width_request">200</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="action">select-folder</property>
+                                        <property name="local_only">True</property>
+                                        <signal name="file-set" handler="rb_pakitaki_output_folder_changed" swapped="no"/>
+                                    </object>
+                                    <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkLabel" id="rb_pakitaki_output_format_label">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="xpad">0</property>
+                                        <property name="xalign">0</property>
+                                        <property name="label" translatable="yes">Format:</property>
+                                        <property name="use_underline">True</property>
+                                    </object>
+                                    <packing>
+                                        <property name="position">2</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkComboBoxText" id="rb_pakitaki_output_format">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="model">formats</property>
+                                        <signal name="changed" handler="rb_pakitaki_output_format_changed" swapped="no"/>
+                                    </object>
+                                    <packing>
+                                        <property name="position">3</property>
+                                        <property name="padding">10</property>
+                                    </packing>
+                                </child>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="left-attach">0</property>
+                        <property name="top-attach">3</property>
+                    </packing>
+                </child>
+
+                <child>
+                    <object class="GtkHBox" id="hbox5">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="border-width">0</property>
+                        <child>
+                            <object class="GtkImage" id="rb_pakitaki_logo">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="width_request">250</property>
+                                <property name="halign">center</property>
+                            </object>
+                            <packing>
+                                <property name="position">0</property>
+                                <property name="padding">10</property>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <object class="GtkButton" id="rb_pakitaki_process">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="width_request">150</property>
+                                <property name="halign">center</property>
+                                <property name="label" translatable="yes">Process</property>
+                                <signal name="clicked" handler="rb_pakitaki_process_clicked" swapped="no"/>
+                            </object>
+                            <packing>
+                                <property name="position">2</property>
+                                <property name="padding">10</property>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <object class="GtkProgressBar" id="rb_pakitaki_progress_bar">
+                                <property name="visible">False</property>
+                                <property name="can_focus">False</property>
+                                <property name="show_text">True</property>
+                                <property name="halign">center</property>
+                            </object>
+                            <packing>
+                                <property name="position">1</property>
+                                <property name="padding">10</property>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                            </packing>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="left-attach">0</property>
+                        <property name="top-attach">4</property>
+                    </packing>
+                </child>
+
+                <child>
+                    <object class="GtkHBox" id="hbox6">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="border-width">0</property>
+                        <child>
+                            <object class="GtkScrolledWindow" id="rb_pakitaki_scroll">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="border-width">10</property>
+                                <property name="shadow_type">in</property>
+                                <property name="min_content_width">50</property>
+                                <property name="min_content_height">120</property>
+                                <property name="hscrollbar_policy">automatic</property>
+                                <property name="vscrollbar_policy">always</property>
+                                <signal name="size-allocate" handler="rb_pakitaki_scroll_size_allocate" swapped="no"/>
+                                <child>
+                                    <object class="GtkTextView" id="rb_pakitaki_report">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="editable">False</property>
+                                        <property name="cursor_visible">False</property>
+                                    </object>
+                                    <!-- <packing>
+                                        <property name="position">0</property>
+                                        <property name="padding">10</property>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                    </packing> -->
+                                </child>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="left-attach">0</property>
+                        <property name="top-attach">5</property>
+                    </packing>
+                </child>            
+            </object>
+        </child>
+    </object>
+
+    <object class="GtkAdjustment" id="adjustment_number_songs">
+        <property name="value">10</property>
+        <property name="lower">2</property>
+        <property name="upper">1000</property>
+        <property name="step_increment">1</property>
+    </object>
+
+    <object class="GtkAdjustment" id="adjustment_start_min">
+        <property name="value">10</property>
+        <property name="lower">5</property>
+        <property name="upper">20</property>
+        <property name="step_increment">1</property>
+    </object>
+
+    <object class="GtkAdjustment" id="adjustment_start_max">
+        <property name="value">80</property>
+        <property name="lower">60</property>
+        <property name="upper">120</property>
+        <property name="step_increment">1</property>
+    </object>
+
+    <object class="GtkAdjustment" id="adjustment_duration_min">
+        <property name="value">15</property>
+        <property name="lower">10</property>
+        <property name="upper">30</property>
+        <property name="step_increment">1</property>
+    </object>
+
+    <object class="GtkAdjustment" id="adjustment_duration_max">
+        <property name="value">30</property>
+        <property name="lower">30</property>
+        <property name="upper">100</property>
+        <property name="step_increment">1</property>
+    </object>
+
+    <object class="GtkListStore" id="sources">
+        <columns>
+          <!-- column-name gchararray -->
+          <column type="gchararray"/>
+          <column type="gchararray"/>
+        </columns>
+        <data>
+          <row>
+            <col id="0">''</col>
+            <col id="1">''</col>
+          </row>
+        </data>
+    </object>
+
+    <object class="GtkListStore" id="formats">
+        <columns>
+          <!-- column-name gchararray -->
+          <column type="gchararray"/>
+        </columns>
+        <data>
+          <row>
+            <col id="0">''</col>
+          </row>
+        </data>
+    </object>
+</interface>
